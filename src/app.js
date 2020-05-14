@@ -21,6 +21,12 @@ if (!isProduction) {
   app.use(errorhandler());
 }
 
+app.get('/', (req, res) => res.json({
+  status: 200,
+  message: 'API Root',
+}));
+
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');
@@ -34,11 +40,13 @@ app.use((req, res, next) => {
 // will print stacktrace
 if (!isProduction) {
   app.use((err, req, res) => {
+    const status = err.status || 500;
+
     logger.log(err.stack);
 
-    res.status(err.status || 500);
-
+    res.status(status);
     return res.json({
+      status,
       errors: {
         message: err.message,
         error: err,
@@ -50,8 +58,11 @@ if (!isProduction) {
 // production error handler
 // no stacktraces leaked to user
 app.use((err, req, res) => {
-  res.status(err.status || 500);
+  const status = err.status || 500;
+
+  res.status(status);
   res.json({
+    status,
     errors: {
       message: err.message,
       error: {},

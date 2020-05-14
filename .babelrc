@@ -1,0 +1,11 @@
+{
+  "presets": ["airbnb"],
+  "plugins": [
+    ["module-resolver", {
+      "alias": {
+        "@helpers": "./src/helpers",
+        "@middlewares": "./src/middlewares"
+      }
+    }]
+  ]
+}

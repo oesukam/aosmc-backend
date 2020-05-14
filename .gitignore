@@ -1,0 +1,13 @@
+# General
+node_modules
+coverage
+dist
+
+# Package manager
+yarn.lock
+package-lock.json
+
+# Logs
+combined.log
+error.log
+logs

@@ -1,0 +1,45 @@
+{
+  "name": "aosmc-backend",
+  "version": "1.0.0",
+  "description": "AOSMC",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "babel-watch src/index.js",
+    "build": "babel src --out-dir dist --copy-files --ignore '**/__tests__,**/__mocks__'",
+    "start": "node dist/index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oesukam/aosmc-backend.git"
+  },
+  "keywords": [
+    "AOSMC",
+    "Doctors",
+    "DRC",
+    "Congolese"
+  ],
+  "author": "Olivier Esuka <oesukam@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oesukam/aosmc-backend/issues"
+  },
+  "homepage": "https://github.com/oesukam/aosmc-backend#readme",
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "cors": "^2.8.5",
+    "dayjs": "^1.8.27",
+    "dotenv": "^8.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-preset-airbnb": "^5.0.0",
+    "babel-watch": "^7.0.0"
+  }
+}

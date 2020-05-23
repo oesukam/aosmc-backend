@@ -2,8 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@helpers": ["src/helpers/*"],
-      "@middlewares": ["src/middlewares/*"]
+      "helpers": ["src/helpers/*"],
+      "middlewares": ["src/middlewares/*"],
+      "constants": ["src/constants/*"],
     }
   }
 }

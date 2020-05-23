@@ -1,13 +1,14 @@
+const path = require('path');
+
 module.exports = {
   testEnvironment: 'node',
   clearMocks: true,
   coverageDirectory: 'coverage',
+  moduleDirectories: ['node_modules', path.join(__dirname, 'src')],
   collectCoverageFrom: ['src/**/*.js'],
   coveragePathIgnorePatterns: [
     'node_modules',
     'coverage',
-    'src/server.js',
-    'src/app.js',
     'src/database',
   ],
   verbose: true,

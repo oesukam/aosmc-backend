@@ -8,6 +8,8 @@
     "build": "babel src --out-dir dist --copy-files --ignore '**/__tests__,**/__mocks__'",
     "start": "node dist/index.js",
     "test": "jest --watch --coverage",
+    "test:ci": "jest --coverage",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "node_modules/.bin/eslint 'src/**/*.*'",
     "lint:fix": "npm run lint -- --fix"
   },
@@ -49,6 +51,7 @@
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-preset-airbnb": "^5.0.0",
     "babel-watch": "^7.0.0",
+    "coveralls": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-import-resolver-babel-module": "^5.1.2",

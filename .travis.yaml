@@ -1,10 +1,11 @@
 env:
   global:
     - NODE_ENV=test
+    - DATABASE_URL=postgresql://aosmc:aosmc@localhost/aosmc
   
 language: node_js
 node_js:
-  - '10.15.1'
+  - '12'
 cache:
   directories:
     - node_modules
@@ -14,7 +15,13 @@ branches:
 install:
   - npm install
 
+before_script:
+  - psql -c 'create database aosmc;' -U postgres
+  - psql -c "CREATE USER aosmc WITH PASSWORD 'aosmc';" -U postgres
+  - npm run db:migrate
+
 script:
   - npm run test:ci
+
 after_success:
   - npm run coveralls

@@ -11,7 +11,10 @@
   ],
   "settings": {
     "import/resolver": {
-      "babel-module": {}
+      "babel-module": {},
+      "jest": {
+        "jestConfigFile": "./jest.config.js"
+      }
     }
   },
   "globals": {
@@ -23,5 +26,6 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-param-reassign": 0
   }
 }

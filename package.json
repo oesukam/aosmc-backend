@@ -7,7 +7,9 @@
     "dev": "babel-watch src/index.js",
     "build": "babel src --out-dir dist --copy-files --ignore '**/__tests__,**/__mocks__'",
     "start": "node dist/index.js",
-    "test": "jest",
+    "test": "jest --watch --coverage",
+    "test:ci": "jest --coverage",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "node_modules/.bin/eslint 'src/**/*.*'",
     "lint:fix": "npm run lint -- --fix"
   },
@@ -38,7 +40,6 @@
     "cors": "^2.8.5",
     "dayjs": "^1.8.27",
     "dotenv": "^8.2.0",
-    "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "winston": "^3.2.1"
@@ -46,14 +47,19 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
+    "babel-jest": "^26.0.1",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-preset-airbnb": "^5.0.0",
     "babel-watch": "^7.0.0",
+    "coveralls": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-import-resolver-jest": "^3.0.0",
     "eslint-plugin-import": "^2.20.2",
     "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "jest-in-case": "^1.0.2",
     "lint-staged": "^10.2.2"
   }
 }

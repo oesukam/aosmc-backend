@@ -1,12 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import errorhandler from 'errorhandler';
-
-import logger from '@helpers/logger';
-import morgan from '@middlewares/morgan';
-
-
-const isProduction = process.env.NODE_ENV === 'production';
+import errorHandler from 'middlewares/error-handler';
+import morgan from 'middlewares/morgan';
 
 // Create global app object
 const app = express();
@@ -17,15 +12,11 @@ app.use(morgan);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-if (!isProduction) {
-  app.use(errorhandler());
-}
 
 app.get('/', (req, res) => res.json({
   status: 200,
   message: 'API Root',
 }));
-
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -35,39 +26,6 @@ app.use((req, res, next) => {
 });
 
 // error handlers
-
-// development error handler
-// will print stacktrace
-if (!isProduction) {
-  app.use((err, req, res) => {
-    const status = err.status || 500;
-
-    logger.log(err.stack);
-
-    res.status(status);
-    return res.json({
-      status,
-      errors: {
-        message: err.message,
-        error: err,
-      },
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use((err, req, res) => {
-  const status = err.status || 500;
-
-  res.status(status);
-  res.json({
-    status,
-    errors: {
-      message: err.message,
-      error: {},
-    },
-  });
-});
+app.use(errorHandler);
 
 export default app;

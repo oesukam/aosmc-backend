@@ -8,7 +8,7 @@
     "build": "babel src --out-dir dist --copy-files --ignore '**/__tests__,**/__mocks__'",
     "start": "node dist/index.js",
     "test": "jest --watch --coverage",
-    "test:ci": "CI=true npm test",
+    "test:ci": "CI=true jest --coverage --detectOpenHandles --forceExit",
     "sequelize": "./node_modules/.bin/babel-node ./node_modules/.bin/sequelize $*",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "node_modules/.bin/eslint 'src/**/*.*'",

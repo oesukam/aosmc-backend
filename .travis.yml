@@ -10,7 +10,7 @@ addons:
 env:
   global:
     - NODE_ENV=test
-    - DATABASE_URL=postgresql://aosmc:aosmc@localhost/aosmc
+    - DATABASE_URL_TEST=postgresql://aosmc:aosmc@localhost/aosmc
 
 cache:
   directories:

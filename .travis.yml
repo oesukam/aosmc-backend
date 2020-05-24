@@ -1,17 +1,25 @@
-env:
-  global:
-    - NODE_ENV=test
-    - DATABASE_URL=postgresql://aosmc:aosmc@localhost/aosmc
-  
 language: node_js
 node_js:
   - '12'
+
+services:
+  - postgresql
+addons:
+  postgresql: '9.5'
+
+env:
+  global:
+    - NODE_ENV=test
+    - DATABASE_URL_TEST=postgresql://aosmc:aosmc@localhost/aosmc
+
 cache:
   directories:
     - node_modules
+
 branches:
   only:
     - develop
+
 install:
   - npm install
 
